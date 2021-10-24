@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        *:focus {
+            outline: 0 !important;
+        }
+
+        .BackgroundDiv {
+            /* position: fixed; */
+            width: 100%;
+            height: 30vh;
+            background-color: #052747;
+            z-index: -1;
+        }
+
+        .LoginDiv {
+            background-color: #fff;
+            width: 60%;
+            margin-right: auto;
+            margin-left: auto;
+            margin-top: -15vh;
+            border-radius: 10px;
+            box-shadow: 0 14px 24px -10px rgba(0, 0, 0, 0.2), 0 -14px 24px -29px rgba(0, 0, 0, 0.29);
+
+            display: flex;
+            flex-direction: row;
+        }
+
+        .containerDiv {
+            /* height: 70vh; */
+            width: 80%;
+        }
+
+        .BordLeft {
+            border-radius: 10px 0px 0px 10px;
+            background-color: #fff;
+        }
+
+        .BordRight {
+            border-radius: 0px 10px 10px 0px;
+        }
+
+        .LoginModule {
+            width: 80%;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .centerBlock {
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .InputStyle {
+            padding: 8px;
+            border-radius: 3px;
+            border: 1px solid #dddee2;
+            width: 65%;
+        }
+
+        .SelectStyle {
+            padding: 7px;
+            border-radius: 3px;
+            border: 1px solid #dddee2;
+            width: 25%;
+            height: 32px;
+        }
+
+        .ButtonStyle {
+            font-weight: 490;
+            cursor: pointer;
+            border-radius: 30px;
+            background-color: #00bfda;
+            padding: 10px;
+            border: 0px;
+            width: 95%;
+            font-size: 15px;
+            color: #ffffff;
+            /* justify-content: left; */
+            float: left;
+        }
+
+        .Footer {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .InputVerify {
+            padding: 8px;
+            border-radius: 3px;
+            border: 1px solid #dddee2;
+            width: 90%;
+        }
+
+        .bottm {
+            margin-bottom: 70px;
+        }
+
+        .ImgStyle {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .main {
+            margin-bottom: 50px;
+        }
+
+        .tncccc {
+            margin: auto;
+            margin-top: 25px;
+            display: flex;
+            font-size: 14px;
+        }
+
+
+
+        @media(max-width:720px) {
+
+            .tncccc {
+                /* margin-top:-10px!important */
+            }
+
+            .HideMob {
+                display: none;
+            }
+
+            .BordLeft {
+                border-radius: 10px 10px 10px 10px;
+            }
+
+            .LoginDiv {
+                width: 90%;
+            }
+
+            .LoginModule {
+                width: 90%;
+            }
+
+            .containerDiv {
+                /* height: 70vh; */
+                width: 100%;
+            }
+
+            .Footer {
+                margin-top: 50px;
+                margin-bottom: 30px;
+            }
+
+            .bottm {
+                margin-bottom: 0px;
+            }
+
+        }
+
+
+        /* switch toggle css */
+
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 38px;
+            height: 22px;
+        }
+
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            /* left: 4px;
+            bottom: 4px; */
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+            box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.31);
+        }
+
+        input:checked+.slider {
+            background-color: #00bfda;
+        }
+
+        input:checked+.slider:before {
+            -webkit-transform: translateX(18px);
+            -ms-transform: translateX(18px);
+            transform: translateX(18px);
+        }
+
+        /* Rounded sliders */
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+</head>
+<noscript>
+    <div style="position: fixed; top: 0px; left: 0px; z-index: 3000;
+                height: 100%; width: 100%; background-color: #FFFFFF">
+        <p style="margin-left: 10px">JavaScript is not enabled.</p>
+    </div>
+</noscript>
+
+<body style="margin: 0px;">
+    <div class="BackgroundDiv"></div>
+    <div class="LoginDiv main">
+        <div class="containerDiv HideMob BordLeft">
+            <img style="border-radius: 10px 0px 0px 0px"
+                src="https://ashishproject.s3.amazonaws.com/login.svg" />
+        </div>
+        <div class="containerDiv BordRight">
+            <div style="display: flex; flex-direction: column;">
+                <div style="margin-top: 50px; margin-bottom: 40px;  text-align: center">
+                </div>
+
+                <!-- otp send block -->
+                <div id="VerifyBlock" class="LoginModule bottm">
+                    <div style="font-size: 30px; ">Login</div>
+                    <div style="margin-top:30px;">
+                        <div>
+                            <div style="font-size: 14px; padding-bottom: 10px; color: #494c52;">Mobile Number</div>
+                            <input class="InputStyle" id="phone" type="text" placeholder="Enter Mobile Number Here" />
+                        </div>
+                        <div>
+                            <div style="font-size: 14px; padding-bottom: 10px; color: #494c52;">Password</div>
+                            <input class="InputStyle" id="password" type="password" placeholder="Enter password Here" />
+                        </div>
+                        <div style="padding-top: 5px; color:red; font-size: 13px;" id="invalidpassword">
+                        </div>
+                        <div style="text-align: center; margin-top: 40px;">
+                            <Button id="sendlogin" class="ButtonStyle">Login</Button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+
+</html>
+
+<script>
+    let password = "";
+    let phone = "";
+    let otp = "";
+    let baseUrl = 'http://localhost:3000/';
+
+
+    $('#sendlogin').click(function () {
+        phone = $('#phone').val();
+        password = $('#password').val();
+        $('#InvalidPhone').text("");
+        if (/^[0-9]{10}$/.test(phone)) {
+            httpRequest(baseUrl + "verify?password=" + password + "&mobile_no=" + phone, 'GET')
+                .then(function (res) {
+                    if(res.success===1){
+                    window.location.href = 'http://localhost:4000/registration';
+                    }else{
+                        $('#invalidpassword').text("Invalid Password or user id");
+                    }
+                    
+                })
+                .catch(function (err) {
+                    console.log("err",err)
+                })
+        } else {
+            $('#InvalidPhone').text("Invalid Input!");
+        }
+    })
+
+    function httpRequest(url, method, token) {
+        return new Promise(function (resolve, reject) {
+            $.ajax({
+                type: method,
+                url: url,
+                dataType: 'json',
+                headers: {
+                    "Content-Type": "application/json",
+                    "content-type": "application/json;charset=UTF-8",
+                },
+                success: function (response) {
+                    console.log("success")
+                    return resolve(response)
+                },
+                error: function (err) {
+                    return reject(err)
+                },
+            });
+        })
+    }
+
+
+    // });
+</script>
